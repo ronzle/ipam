@@ -10,8 +10,8 @@ RUN a2enmod rewrite
 RUN mkdir /etc/apache2/certs
 RUN a2enmod ssl
 
-RUN curl -L "http://downloads.sourceforge.net/project/phpipam/phpipam-1.1.tar" > /tmp/phpipam.tar
-RUN rm -fr /var/www/html && cd /tmp && tar -xvf phpipam.tar && mv /tmp/phpipam /var/www/html
+RUN curl -L "https://github.com/phpipam/phpipam/archive/1.19.008.tar.gz" > /tmp/phpipam.tar.gz
+RUN rm -fr /var/www/html && cd /tmp && tar -xvfz phpipam.tar && mv /tmp/phpipam /var/www/html
 RUN sed -i "s/@localhost/@\\\\'%\\\\'/" /var/www/html/functions/functions-install.php
 
 VOLUME /etc/apache2/certs/
